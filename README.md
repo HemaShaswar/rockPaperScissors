@@ -1,0 +1,2 @@
+# rockPaperScissors
+first JavaScript program
