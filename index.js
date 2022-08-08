@@ -78,13 +78,36 @@ function playRound() {
 
 function playGame() {
 
-    for (let i = 0; i <= 1; i++) {
+    let computerScore;
+    let playerScore;
+    let roundCount = 0;
+    let gameChamp;
+
+    for (let i = 0; i < 5; i++) {
 
         let champ = playRound();
 
-        if (champ === )
+        if (champ === "Computer") {
+
+            computerScore++;
+
+        } else if (champ === "Player") {
+
+            playerScore++;
+
+        }
+
+        roundCount++;
+
+        console.log(`that was Round: ${roundCount}`)
 
     }
+
+    playerScore > computerScore ? gameChamp = "Player" : gameChamp = "Computer";
+
+    console.log(`${gameChamp} WON THE GAME`);
+    alert(`${gameChamp} WON THE GAME`);
+
 
 }
 
