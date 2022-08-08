@@ -1,12 +1,8 @@
-// rock = 1, paper = 2 and scissors = 3
-
-let playerChoice;
-let ComputerChoice;
-let result;
-
 function getComputerChoice() {
 
     let ComputerChoice = Math.floor((Math.random()*3)+1);
+
+    // rock = 1, paper = 2 and scissors = 3
 
     if (ComputerChoice === 1) {
 
@@ -16,75 +12,57 @@ function getComputerChoice() {
 
         ComputerChoice = "paper"
 
-    } else {
+    } else if (ComputerChoice === 3) {
 
         ComputerChoice = "scissors"
 
+    } else {
+        alert("error in getting computer choice")
     }
     return ComputerChoice;
 }
 
 function getPlayerChoice() {
-    playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
 
-    if (playerChoice === "rock") {
+    let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
 
-        playerChoice = 1;
-    
-    } else if (playerChoice === "paper") {
-    
-        playerChoice = 2;
-    
-    } else if (playerChoice === "scissors") {
-    
-        playerChoice = 3;
+    if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") {
+
+        return playerChoice;
     
     } else {
-    
-        alert("Choose one of rock, paper or scissors");
+
+        alert("invalid choice, try again.");
+
         playerChoice = null;
+
+        getPlayerChoice();
+
     }
 
-    console.log(playerChoice);
-
-}
-getPlayerChoice();
-
-function playRound(PlayerChoice, ComputerChoice) {
-
-    getComputerChoice();
-
-    getPlayerChoice();
-
-    // if ( ) {
-    //     result = "You Lose! Paper beats Rock"
-    // } else if () {
-
-    // } else if () {
-        
-    // } else if () {
-        
-    // }
-
 }
 
 
-if (playerChoice === "rock") {
+function playRound() {
 
-    playerChoice = 1;
+    let bot = getComputerChoice();
 
-} else if (playerChoice === "paper") {
+    let player = getPlayerChoice();
 
-    playerChoice = 2;
-
-} else if (playerChoice === "scissors") {
-
-    playerChoice = 3;
-
-} else {
-
-    alert("Choose one of rock, paper or scissors");
-
-    playerChoice = null;
+    if (player === "rock" && bot === "rock")
 
 }
+
+function playGame() {
+
+    for (let i = 0; i <= 1; i++) {
+
+        playRound();
+
+    }
+
+}
+
+
+
+
