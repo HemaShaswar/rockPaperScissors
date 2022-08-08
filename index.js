@@ -49,7 +49,30 @@ function playRound() {
 
     let player = getPlayerChoice();
 
-    if (player === "rock" && bot === "rock")
+    let winner;
+
+    console.log(`Computer Choice is ${bot}.`);
+    alert(`Computer Choice is ${bot}.`);
+
+    if (player === bot) {
+
+        winner = "nobody";
+
+    } else if (player === "rock" && bot === "paper" || player === "paper" && bot === "scissors" || player === "scissors" && bot === "rock") {
+
+        winner = "Computer";
+
+    } else {
+
+        winner = "Player";
+
+    }
+
+    console.log(`The winner of the round is ${winner}`);
+
+    alert(`The winner of the round is ${winner}`);
+
+    return winner;
 
 }
 
@@ -57,7 +80,9 @@ function playGame() {
 
     for (let i = 0; i <= 1; i++) {
 
-        playRound();
+        let champ = playRound();
+
+        if (champ === )
 
     }
 
