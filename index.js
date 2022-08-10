@@ -99,7 +99,7 @@ function playGame() {
 
         roundCount++;
 
-        console.log(`that was Round: ${roundCount}. /nPlayer: ${playerScore} Computer: ${computerScore}`)
+        console.log(`that was Round: ${roundCount}. \n Player: ${playerScore} Computer: ${computerScore}`)
 
     }
 
