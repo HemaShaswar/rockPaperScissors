@@ -1,3 +1,5 @@
+document.getElementById("game").addEventListener("click", playGame);
+
 function getComputerChoice() {
 
     let ComputerChoice = Math.floor((Math.random()*3)+1);
@@ -70,16 +72,14 @@ function playRound() {
 
     console.log(`The winner of the round is ${winner}`);
 
-    alert(`The winner of the round is ${winner}`);
-
     return winner;
 
 }
 
 function playGame() {
 
-    let computerScore;
-    let playerScore;
+    let computerScore = 0;
+    let playerScore = 0;
     let roundCount = 0;
     let gameChamp;
 
@@ -99,7 +99,7 @@ function playGame() {
 
         roundCount++;
 
-        console.log(`that was Round: ${roundCount}`)
+        console.log(`that was Round: ${roundCount}. /nPlayer: ${playerScore} Computer: ${computerScore}`)
 
     }
 
@@ -108,6 +108,7 @@ function playGame() {
     console.log(`${gameChamp} WON THE GAME`);
     alert(`${gameChamp} WON THE GAME`);
 
+    return gameChamp;
 
 }
 
