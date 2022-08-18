@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="dom.js" defer></script>
+    <link href="http://fonts.cdnfonts.com/css/arcade" rel="stylesheet">
+                                
+
 </head>
 <body>
-    <button id="game">Play Game</button>
-    <script src="index.js"></script>
+    <div class="scoreboard">
+        <div class="roundCount">Round: 0</div>
+        <div class="score">
+            <div class="playerScore">PLAYER: 0</div>
+            <div class="computerScore">COMPUTER: 0</div>
+        </div>
+    </div>
+
+    <div class="messenger">
+        <p>PLAY A ROUND OR A GAME(FIRST TO 5)</p>
+    </div>
+
+    <div class="playground">
+        <div class="choice">
+            <button class="rock">Rock</button>
+            <button class="paper">Paper</button>
+            <button class="scissors">Scissors</button>
+        </div>
+    </div>
+    
 </body>
 </html>
