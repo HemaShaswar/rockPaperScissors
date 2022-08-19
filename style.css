@@ -31,7 +31,7 @@ body>div {
 
 }
 
-.roundCount {
+.roundCount, .round {
     font-size: 8vw;
     font-family: 'Arcade Interlaced', sans-serif;
 
@@ -52,12 +52,13 @@ body>div {
 
 }
 
-.playground {
+.playGround {
     background-color: lightsalmon;
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 16px 32px;
 }
 
 .start {
@@ -68,7 +69,7 @@ body>div {
 
 .choice {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 button {

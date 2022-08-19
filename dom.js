@@ -1,10 +1,31 @@
 let playerChoice;
-let ComputerChoice;
+let computerChoice;
 
 const rockBtn = document.querySelector('.rock');
 const paperBtn = document.querySelector('.paper');
 const scissorsBtn = document.querySelector('.scissors');
 const choices = document.querySelectorAll('.choice button');
+
+const resetBtn = document.createElement('button');
+resetBtn.textContent = "PLAY AGAING"
+resetBtn.addEventListener("click", () => {
+    roundCount.textContent = 0;
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    messenger.textContent = "PLAY A ROUND OR A GAME(FIRST TO 5)"
+});
+
+const playGround = document.querySelector('.playGround');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+const roundCount = document.querySelector('.roundCount');
+
+roundCount.textContent = 0;
+playerScore.textContent = 0;
+computerScore.textContent = 0;
+
+const messenger = document.querySelector('p');
+
 choices.forEach((button) => button.addEventListener('click', () => {
     playerChoice = `${button.className}`;
     decideWinner();
@@ -13,45 +34,69 @@ choices.forEach((button) => button.addEventListener('click', () => {
 const roundBtn = document.getElementById('round');
 const gameBtn = document.getElementById('game');
 
-function getComputerChoice() {
+function getcomputerChoice() {
 
-    ComputerChoice = Math.floor((Math.random()*3)+1);
+    computerChoice = Math.floor((Math.random()*3)+1);
 
-    if (ComputerChoice === 1) {
+    if (computerChoice === 1) {
 
-        ComputerChoice = "rock"
+        computerChoice = "rock"
 
-    } else if (ComputerChoice === 2) {
+    } else if (computerChoice === 2) {
 
-        ComputerChoice = "paper"
+        computerChoice = "paper"
 
-    } else if (ComputerChoice === 3) {
+    } else if (computerChoice === 3) {
 
-        ComputerChoice = "scissors"
+        computerChoice = "scissors"
 
     } else {
         alert("error in getting computer choice")
     }
-    return ComputerChoice;
+    return computerChoice;
 }
 
 function decideWinner() {
 
     let winner;
+    let champ;
+    computerScore > playerScore ? champ = "COMPUTER" : champ = "PLAYER";
+    if (+roundCount.textContent === 5) {
 
-    getComputerChoice();
+        messenger.textContent = `Game ended. ${champ} WON!`;
 
-    if (playerChoice === ComputerChoice) {
+        playGround.appendChild(resetBtn);
+
+        
+
+        return;
+
+    } else {
+
+        ++roundCount.textContent;
+
+
+    }
+
+
+
+
+    getcomputerChoice();
+    messenger.textContent = `PLAYER: ${playerChoice} \N COMPUTER: ${computerChoice}`;
+
+    if (playerChoice === computerChoice) {
 
         winner = "nobody";
 
-    } else if (playerChoice === "rock" && ComputerChoice === "paper" 
-    || playerChoice === "paper" && ComputerChoice === "scissors" 
-    || playerChoice === "scissors" && ComputerChoice === "rock") {
+    } else if (playerChoice === "rock" && computerChoice === "paper" 
+    || playerChoice === "paper" && computerChoice === "scissors" 
+    || playerChoice === "scissors" && computerChoice === "rock") {
 
         winner = "Computer";
+        computerScore.textContent++;
 
-    } else if (!playerChoice || !ComputerChoice) {
+
+    } else if (!playerChoice || !computerChoice) {
 
         console.log("ERROR");
 
@@ -60,6 +105,7 @@ function decideWinner() {
     } else {
 
         winner = "Player";
+        playerScore.textContent++;
 
     }
     
@@ -67,4 +113,7 @@ function decideWinner() {
 
     return winner;
 }
+
+
+
 
